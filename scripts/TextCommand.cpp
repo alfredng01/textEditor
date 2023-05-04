@@ -29,11 +29,13 @@ bool TextCommandHistory :: Undo()
     {
         return false;
     }
-
-    TextCommand *cmd = undoStack.back();
-    cmd->UnExecute();
-    undoStack.pop_back();
-    redoStack.push_back(cmd);
+    for (auto x : undoStack)
+    {
+        TextCommand *cmd = undoStack.back();
+        cmd->UnExecute();
+        undoStack.pop_back();
+        redoStack.push_back(cmd);
+    }
     return true;
 }
 
@@ -44,10 +46,13 @@ bool TextCommandHistory :: Redo()
         return false;
     }
 
-    TextCommand *cmd = redoStack.back();
-    cmd->Execute();
-    redoStack.pop_back();
-    undoStack.push_back(cmd);
+    for (auto x : redoStack)
+    {
+        TextCommand *cmd = redoStack.back();
+        cmd->Execute();
+        redoStack.pop_back();
+        undoStack.push_back(cmd);
+    }
     return true;
 }
 
