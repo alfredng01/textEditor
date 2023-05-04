@@ -1,4 +1,4 @@
-# textEditor
+# C++ Based Text Editor
 A Vi Style Text Editor built in C++, based on my professors code.
 
 #### Features
