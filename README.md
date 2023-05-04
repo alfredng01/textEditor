@@ -25,9 +25,9 @@ A Vi Style Text Editor built in C++, based on my professors code.
 
 #### Alternative Option:
 1) If you are on a Unix based system, there is a bash script that will compile the program for you. Simply run `./helper.sh` and this will compile and clean the object files for you.
-   1) Note that you might need to change the permissions, if so just run `chmod +x helper.sh`
+   1) Note that you might need to change the permissions, if so just run `chmod +x helper.sh` in the same directory that `helper.sh` is in.
 
 
 #### Note:
 - As this uses `termios.h`, you need to run this on a Unix based system.
-  - If you are on windows, you can use wsl to compile and run this program.
+  - If you are on windows, you can use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) as an alternative to compile and run this program.
