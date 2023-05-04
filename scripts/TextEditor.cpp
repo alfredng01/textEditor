@@ -415,7 +415,7 @@ void TextEditor :: ColorKeywords()
             vector<size_t> posArray = stringFinder(viewText[i], word);
             for (auto pos : posArray)
             {
-                window.SetColor(i, pos, pos + word.size(), TEXT_COLOR_CYAN);
+                window.SetColor(i, pos, pos + word.size(), TEXT_COLOR_BLUE);
             }
         }
     }
