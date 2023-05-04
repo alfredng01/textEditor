@@ -75,21 +75,21 @@ TextEditor :: TextEditor(string fileName)
 
     ifstream inFile(keywordFile.c_str());
 
-    if (fileIn.good())
+    if (inFile.good())
     {
         keywordEnabled = true;
         string temp;
-        while (getline(fileIn, temp))
+        while (getline(inFile, temp))
         {
             keyWords.push_back(temp);
         }
-
-        fileIn.close();
 
         for (auto x : keyWords)
         {
             x.erase(remove(x.begin(), x.end(), '\n'), x.cend());
         }
+
+        inFile.close();
     }
 
     this->SetCursor(0, 0);
@@ -130,8 +130,9 @@ void TextEditor :: Update()
         EnterHandler();
     }
 
-    else if (keywordEnabled && representation == ' ' && !commandMode)
+    else if (representation == ' ' && keywordEnabled && !commandMode)
     {
+        KeyHandler(keyPressed);
         ColorKeywords();
     }
 
@@ -414,10 +415,8 @@ void TextEditor :: ColorKeywords()
             vector<size_t> posArray = stringFinder(viewText[i], word);
             for (auto pos : posArray)
             {
-                window.SetColor(i, pos, word.size(), TEXT_COLOR_BLUE);
+                window.SetColor(i, pos, pos + word.size(), TEXT_COLOR_BLUE);
             }
         }
     }
-
-    window.Refresh();
 }
