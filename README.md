@@ -16,6 +16,7 @@ A Vi Style Text Editor built in C++, based on my professors code.
 #### TODO
 - Finish Word Wrapping
 - Fix Enter(Prepends insteads of Appends)
+- Fix Backspacing into a new row
 
 #### To Run:
 
@@ -29,5 +30,5 @@ A Vi Style Text Editor built in C++, based on my professors code.
 
 
 #### Note:
-- As this uses `termios.h`, you need to run this on a Unix based system.
+- As this uses special unix only header files such as `termios.h`, you need to run this on a Unix based system.
   - If you are on windows, you can use [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) as an alternative to compile and run this program.
