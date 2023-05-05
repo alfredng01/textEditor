@@ -107,12 +107,12 @@ void TextEditor :: Update()
     if (keyPressed == 17)
     {
         SaveHandler();
-        window.Quit();
 
         for (int i = 0; i < 25; i++)
         {
             cout << endl;
         }
+        window.Quit();
     }
 
     else if (keyPressed == 25 && commandMode)
@@ -175,7 +175,7 @@ void TextEditor :: NormalModeHandler()
     if (!commandMode)
     {
         window.ClearStatusRows();
-        window.AddStatusRow("Normal Mode", "Edit Mode", false);
+        window.AddStatusRow("Insert Mode", "Edit Mode", false);
     }
 }
 
@@ -185,7 +185,7 @@ void TextEditor :: EscapeHandler()
     if (commandMode)
     {
         window.ClearStatusRows();
-        window.AddStatusRow("Command Mode", "Command Mode", false);
+        window.AddStatusRow("Normal Mode", "Command Mode", false);
     }
 }
 
@@ -415,7 +415,10 @@ void TextEditor :: ColorKeywords()
             vector<size_t> posArray = stringFinder(viewText[i], word);
             for (auto pos : posArray)
             {
-                window.SetColor(i, pos, pos + word.size(), TEXT_COLOR_BLUE);
+                if (viewText[i][pos + word.size()] == ' ' || viewText[i][pos + word.size()] == '\n')
+                {
+                    window.SetColor(i, pos, pos + word.size() - 1, TEXT_COLOR_BLUE);
+                }
             }
         }
     }
