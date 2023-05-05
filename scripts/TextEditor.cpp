@@ -419,7 +419,7 @@ void TextEditor :: ColorKeywords()
             vector<size_t> posArray = stringFinder(viewText[i], word);
             for (auto pos : posArray)
             {
-                if (viewText[i][pos + word.size()] == ' ' || viewText[i][pos + word.size()] == '\n')
+                if ((viewText[i][pos + word.size()] == ' ' || viewText[i][pos + word.size()] == '\n') && (viewText[i][pos - 1] == ' ' || !isalnum(viewText[i][pos - 1])))
                 {
                     window.SetColor(i, pos, pos + word.size() - 1, TEXT_COLOR_BLUE);
                 }
