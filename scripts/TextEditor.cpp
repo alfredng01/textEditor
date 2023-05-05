@@ -92,9 +92,13 @@ TextEditor :: TextEditor(string fileName)
         inFile.close();
     }
 
+    // prehighlight
+
     this->SetCursor(0, 0);
     this->InsertRow("");
     this->Compose();
+
+    ColorKeywords();
 
     window.Attach(this);
     window.Show();
