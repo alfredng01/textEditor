@@ -90,6 +90,8 @@ void EnterCommand :: Execute()
             temp += (int)editor.GetText()[realY].size();
             realY++;
         }
+
+        // realX = rowLengthE - temp;
     }
 
     else
@@ -99,6 +101,8 @@ void EnterCommand :: Execute()
             temp += (int)editor.GetText()[realY].size();
             realY++;
         }
+
+        // realX = rowLengthE - temp;
     }
 
     if (realX == (editor.GetText()[realY].size() - 1))
